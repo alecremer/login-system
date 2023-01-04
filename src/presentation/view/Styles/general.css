@@ -1,0 +1,29 @@
+.bg-dark{
+
+    background-color: rgb(58, 58, 58);
+
+}
+
+.text-input {
+    
+    border-color: rgb(204, 204, 204);
+    border-width: 0.1rem;
+    padding-left: 0.4rem;
+    width: 100%;
+    @apply rounded-lg;
+
+}
+
+.btn-default{
+
+    background-color: rgb(95, 74, 177);
+    @apply rounded-full;
+    width: 100%;
+    padding: 0.3em;
+    color: white;
+    font-size: large;
+}
+
+.redirect-log-text{
+    @apply text-orange-500;
+}

@@ -1,7 +1,17 @@
+function createAccount(accountData) {
+    
+    var validateAccountBuilder = require('./validateAccountBuilder/validateAccountBuilder');
+    var registerAccount = require('./registerAccount');
 
+    var accountValid = validateAccountBuilder(data);
+    var accountRegistered;
 
-// function createAccount(email, password) {
-//     return (  );
-// }
+    if(accountValid){
+        accountRegistered = registerAccount(data);
+    }
+    
+    return accountRegistered;
 
-// export default createAccount;
+}
+
+module.exports = createAccount;

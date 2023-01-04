@@ -6,6 +6,8 @@ test("Return if email is valid", () => {
     expect(validateEmail("aaa.aaaaa.aaaa@gmail.com")).toBe(true);
     expect(validateEmail("AAaaa.AAAaaa.BBBlkasdf_sadf@gmail.com.br")).toBe(true);
 
+    expect(validateEmail("")).toBe(false);
+    expect(validateEmail(null)).toBe(false);
     expect(validateEmail("asdf_asdf_asdf@@gmail.com")).toBe(false);
     expect(validateEmail("abcdefghijk@gmail@.com")).toBe(false);
     expect(validateEmail("abcdefghijk@gmail.com_")).toBe(false);

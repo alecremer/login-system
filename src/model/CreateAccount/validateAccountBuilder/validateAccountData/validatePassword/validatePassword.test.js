@@ -9,6 +9,8 @@ test("Return if password is valid", () => {
     expect(validatePassword("ABCD1234")).toBe(true);
     expect(validatePassword("01234567890123456789012345678912")).toBe(true);
 
+    expect(validatePassword("")).toBe(false);
+    expect(validatePassword(null)).toBe(false);
     expect(validatePassword("ABCD1234;")).toBe(false);
     expect(validatePassword("ABCD1234'")).toBe(false);
     expect(validatePassword("ABCD1234\"")).toBe(false);

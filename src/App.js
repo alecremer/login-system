@@ -25,7 +25,7 @@ function App() {
       <Routes >
     
         <Route element = { <LoginContainer/> }  path="/" />
-        <Route element = { <LogupContainer/> }  path="/logup" />
+        <Route element = { <LogupContainer controller={createAccountController}/> }  path="/logup" />
 
       </Routes>
     </div>

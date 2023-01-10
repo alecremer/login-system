@@ -1,5 +1,5 @@
 import React from "react";
-import "../../Styles/loginContainer.css";
+import "../../Styles/logContainer.css";
 
 export default class TextInput extends React.Component{
     

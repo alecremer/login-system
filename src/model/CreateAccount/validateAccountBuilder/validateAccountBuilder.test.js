@@ -3,13 +3,19 @@ const validateAccountBuilder = require("./validateAccountBuilder.js");
 var dataOK = {email: "email.test@somemail.com", password: "somePassword123@@", passwordConfirmation: "somePassword123@@"}; 
 var dataEmailError = {email: "email.test.com", password: "somePassword123@@", passwordConfirmation: "somePassword123@@"};
 var dataPasswordError = {email: "email.test@somemail.com", password: "123456789;", passwordConfirmation: "123456789"};
-var dataPassworConfirmationError = {email: "email.test@somemail.com", password: "somePassword123@@;", passwordConfirmation: "somePassword123@"};
+var dataPasswordConfirmationError = {email: "email.test@somemail.com", password: "somePassword123@@;", passwordConfirmation: "somePassword123@"};
+var dataEmailUndefined = {email: undefined, password: "somePassword123@@", passwordConfirmation: "somePassword123@"};
+var dataPasswordUndefined = {email: "email.test@somemail.com", password: undefined, passwordConfirmation: "somePassword123@"};
+var dataPasswordConfirmationUndefined = {email: "email.test@somemail.com", password: "somePassword123@@", passwordConfirmation: undefined};
 
 test("Return account is valid", () => {
-    expect(validateAccountBuilder(dataOK)).toBe(true);
+    expect(validateAccountBuilder(dataOK).accountDataValid).toBe(true);
 
-    expect(validateAccountBuilder(dataEmailError)).toBe(false);
-    expect(validateAccountBuilder(dataPasswordError)).toBe(false);
-    expect(validateAccountBuilder(dataPassworConfirmationError)).toBe(false);
+    expect(validateAccountBuilder(dataEmailError).accountDataValid).toBe(false);
+    expect(validateAccountBuilder(dataPasswordError).accountDataValid).toBe(false);
+    expect(validateAccountBuilder(dataPasswordConfirmationError).accountDataValid).toBe(false);
+    expect(validateAccountBuilder(dataEmailUndefined).accountDataValid).toBe(false);
+    expect(validateAccountBuilder(dataPasswordUndefined).accountDataValid).toBe(false);
+    expect(validateAccountBuilder(dataPasswordConfirmationUndefined).accountDataValid).toBe(false);
 
 });

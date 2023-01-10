@@ -1,5 +1,5 @@
 import React from "react";
-import "../../Styles/loginContainer.css";
+import "../../Styles/logContainer.css";
 import TextInput from "../Input/TextInput";
 import Button from "../Input/Button";
 

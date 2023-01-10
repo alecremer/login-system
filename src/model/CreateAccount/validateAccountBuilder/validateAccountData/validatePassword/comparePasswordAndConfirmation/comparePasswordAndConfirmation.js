@@ -1,6 +1,11 @@
 function comparePasswordAndConfirmation(password, passwordConfirmation) {
     
-    return (password === passwordConfirmation);
+    if(password && passwordConfirmation){
+
+        return (password === passwordConfirmation);
+    
+    }
+    else return false;
     
 }
 

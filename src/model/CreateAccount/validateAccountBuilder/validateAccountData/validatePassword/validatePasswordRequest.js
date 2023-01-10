@@ -1,10 +1,9 @@
 const comparePasswordAndConfirmation  = require("./comparePasswordAndConfirmation/comparePasswordAndConfirmation");
 const validatePasswordCharacters =  require("./validateCharacters/validatePasswordCharacters");
-const responseCode = require("../../createAccountResponse");
 
-function validatePasswordRequest(password, passwordConfirmation) {
+function validatePasswordRequest(password, passwordConfirmation, responseToHandle) {
 
-    var response = responseCode;
+    var response = responseToHandle;
 
     var passwordAndConfirmationAreEqual = comparePasswordAndConfirmation(password, passwordConfirmation);
     var validCharacters = validatePasswordCharacters(password, passwordConfirmation);

@@ -1,5 +1,7 @@
 var createAccountResponse = {
 
+    accountRegistered: "",
+    accountDataValid: "",
     passwordAndConfirmationAreEqual: "",
     passwordValidCharactersOrNumberOfCharacters: "",
     emailValid: ""

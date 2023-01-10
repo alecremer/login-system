@@ -3,11 +3,11 @@ function createAccount(accountData) {
     var validateAccountBuilder = require('./validateAccountBuilder/validateAccountBuilder');
     var registerAccount = require('./registerAccount');
 
-    var accountValid = validateAccountBuilder(data);
+    var accountValid = validateAccountBuilder(accountData);
     var accountRegistered;
 
     if(accountValid){
-        accountRegistered = registerAccount(data);
+        accountRegistered = registerAccount(accountData);
     }
     
     return accountRegistered;

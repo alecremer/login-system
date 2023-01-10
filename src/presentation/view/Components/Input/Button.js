@@ -6,13 +6,11 @@ export default class Button extends React.Component{
     constructor(props)
     {
         super(props);
-        this.state = {};  
     }
     
     setValue(e){
 
-        this.setState({parameter: e.target.value});
-        this.props.onChangeParameter(e.target.value); // send to parent
+        this.props.onClick(e.target.value); // send to parent
       
     }
     
@@ -20,7 +18,7 @@ export default class Button extends React.Component{
     render(){
         return(
             <div className="w-full">
-                <button className="btn-default">{this.props.label}</button>
+                <button className="btn-default" onClick={(e) => this.setValue(e)}>{this.props.label}</button>
             </div>
         )
     }

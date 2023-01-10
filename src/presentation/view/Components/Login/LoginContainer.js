@@ -5,7 +5,6 @@ import Button from "../Input/Button";
 
 export default class LoginContainer extends React.Component{
 
-
     render(){
         return(
             <div>

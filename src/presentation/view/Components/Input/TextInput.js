@@ -12,7 +12,9 @@ export default class TextInput extends React.Component{
     setValue(e){
 
         this.setState({value: e.target.value});
-        this.props.onChangeValue(e.target.value); // send value to parent
+        
+        if(this.props.onChangeValue)
+        this.props.onChangeValue(e.target.value);
       
     }
     
@@ -21,7 +23,6 @@ export default class TextInput extends React.Component{
 
         return(
             <div className=" flex flex-col w-full">
-
                 <div className=" basis-5/12 flex justify-start pl-1 pb-1">
                     <label>{this.props.label}</label>
                 </div>
@@ -29,7 +30,7 @@ export default class TextInput extends React.Component{
                 <div className=" basis-7/12 ">
                     <form>
                         <input type={this.props.type} className="text-input h-8"
-                        value={this.state.value} onChange={e => this.setValue(e)}
+                        onChange={e => this.setValue(e)}
                         />
                     </form>
                 </div>

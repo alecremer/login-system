@@ -6,6 +6,7 @@ class createAccountController{
         this.passwordAndConfirmationAreEqual = "";
         this.passwordValidCharactersOrNumberOfCharacters = "";
         this.emailValid = "";
+        this.accountDataValid = "";
         
     }
     
@@ -18,6 +19,12 @@ class createAccountController{
         this.passwordAndConfirmationAreEqual = response.passwordAndConfirmationAreEqual; 
         this.passwordValidCharactersOrNumberOfCharacters = response.passwordValidCharactersOrNumberOfCharacters; 
         this.emailValid = response.emailValid; 
+        this.accountDataValid = response.accountDataValid; 
+
+        // Object.entries(this).forEach(field => {
+        //     const [key, value] = field;
+        //     console.log(key, value);
+        // });
         
 
        

@@ -2,6 +2,7 @@ import React from "react";
 import "../../Styles/logContainer.css";
 import TextInput from "../Input/TextInput";
 import Button from "../Input/Button";
+import { Redirect } from 'react-router-dom';
 
 export default class LogupContainer extends React.Component{
 
@@ -28,6 +29,13 @@ export default class LogupContainer extends React.Component{
         this.props.controller.createAccount(this.state.data);
         this.setState({passwordValid: this.props.controller.passwordValidCharactersOrNumberOfCharacters});
         this.setState({emailValid: this.props.controller.emailValid});
+
+        this.redirectIfLogUp(this.props.controller.accountRegistered);
+    }
+
+    redirectIfLogUp(isRegistered){
+
+        if(isRegistered === true) window.location.href = '/anotherPagePath';
 
     }
     

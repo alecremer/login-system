@@ -18,12 +18,8 @@ function validateAccountBuilder(data) {
         if(data){
             
             response = validatePassword(data.password, data.passwordConfirmation, response);
-            var passwordValid = true;
-    
-            Object.values(response).forEach(field => {
-                if(field === false) passwordValid = false;    
-            });
-    
+            var passwordValid = (response.passwordAndConfirmationAreEqual && response.passwordValidCharactersOrNumberOfCharacters);
+            
             return passwordValid;
 
         }
@@ -47,7 +43,7 @@ function validateAccountBuilder(data) {
 
     var accountDataIsValid = validateAccountData(data, validators);
     
-    response.accountDataValid = accountDataIsValid
+    response.accountDataValid = accountDataIsValid;
 
     return response;
 }

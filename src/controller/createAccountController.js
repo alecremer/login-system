@@ -1,4 +1,4 @@
-class createAccountController{
+export default class createAccountController{
     
     constructor() {
         

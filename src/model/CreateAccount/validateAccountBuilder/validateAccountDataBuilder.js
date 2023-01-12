@@ -1,17 +1,28 @@
-var responseCode = require("./createAccountResponse");
+var responseCode = require("../createAccountResponse");
 
 
-function validateAccountBuilder(data) {
+function validateAccountDataBuilder(data) {
     
     var response = responseCode;
 
+    var validateIfUsernameWasNotInUse = require("./validateAccountData/validateUserName/validateIfUsernameWasNotInUse");
     var validateEmail = require("./validateAccountData/validateEmail/validateEmail");
+    var validateIfEmailWasNotInUse = require("./validateAccountData/validateEmail/validateIfEmailWasNotInUse");
     var validatePassword = require("./validateAccountData/validatePassword/validatePasswordRequest");
     var validateAccountData = require("./validateAccountData/validateAccountData");
     
 
-    // to do:
-    // return object with data response
+    var validateUsernameDecode = (data) => {
+        
+        if(data){
+            
+            response = validateIfUsernameWasNotInUse(data.username, response);
+            
+            return !response.usernameInUse;
+
+        }
+        else return false;
+    };
 
     var validatePasswordDecode = (data) => {
         
@@ -31,13 +42,16 @@ function validateAccountBuilder(data) {
         if(data){
             
             response = validateEmail(data.email, response);
-            return response.emailValid;
+            response = validateIfEmailWasNotInUse(data.email, response);
+            return (response.emailValid && !response.emailInUse);
             
         }
         else return false;
     }
 
     var validators = [
+        
+        (data) => validateUsernameDecode(data),
         (data) => validatePasswordDecode(data),
         (data) =>  validateEmailDecode(data)];
 
@@ -48,4 +62,4 @@ function validateAccountBuilder(data) {
     return response;
 }
 
-module.exports = validateAccountBuilder;
+module.exports = validateAccountDataBuilder;

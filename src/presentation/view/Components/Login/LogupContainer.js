@@ -9,9 +9,13 @@ export default class LogupContainer extends React.Component{
     constructor(props)
     {
         super(props);
-        this.state = {data: {password: "", passwordConfirmation: ""}, passwordValid: true, emailValid: true};
+        this.state = {data: {password: "", passwordConfirmation: ""}, passwordValid: true, emailValid: true, emailInUse: false, usernameInUse: false};
     }
 
+    setUsernameDataState(value) {
+        this.setState({data: {...this.state.data, username: value}});
+    }
+    
     setEmailDataState(value) {
         this.setState({data: {...this.state.data, email: value}});
     }
@@ -29,13 +33,15 @@ export default class LogupContainer extends React.Component{
         this.props.controller.createAccount(this.state.data);
         this.setState({passwordValid: this.props.controller.passwordValidCharactersOrNumberOfCharacters});
         this.setState({emailValid: this.props.controller.emailValid});
+        this.setState({emailInUse: this.props.controller.emailInUse});
+        this.setState({usernameInUse: this.props.controller.usernameInUse});
 
         this.redirectIfLogUp(this.props.controller.accountRegistered);
     }
 
     redirectIfLogUp(isRegistered){
 
-        if(isRegistered === true) window.location.href = '/anotherPagePath';
+        // if(isRegistered === true) window.location.href = '/anotherPagePath';
 
     }
     
@@ -59,11 +65,20 @@ export default class LogupContainer extends React.Component{
                         <h1 className="text-xl font-bold">Login</h1>
 
                         <div className="grid  basis-11/12 p-2">
+                            
+                            <div className="flex items-center justify-center pr-2 pl-2">
+                                <TextInput label="Nome de usuário:" type="text" onChangeValue={(value) => this.setUsernameDataState(value)}/>
+                            </div>
+                            {(this.state.usernameInUse) &&
+                            <p className="log-error pl-3">o nome de usuário já está em uso</p>}
+                            
                             <div className="flex items-center justify-center pr-2 pl-2">
                                 <TextInput label="E-mail:" type="email" onChangeValue={(value) => this.setEmailDataState(value)}/>
                             </div>
                             {(!this.state.emailValid) &&
                             <p className="log-error pl-3">use um endereço de email válido</p>}
+                            {(this.state.emailInUse) &&
+                            <p className="log-error pl-3">o endereço de email já está em uso</p>}
                             
                             <div className="flex items-center justify-center pr-2 pl-2">
                                 <TextInput label="Senha:" type="password" onChangeValue={(value) => this.setPasswordDataState(value)}/>

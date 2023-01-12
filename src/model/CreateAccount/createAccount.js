@@ -1,16 +1,26 @@
 function createAccount(accountData) {
     
-    var validateAccountBuilder = require('./validateAccountBuilder/validateAccountBuilder');
+    // require modules --------------------------------------------------------
+
+    var validateAccountBuilder = require('./validateAccountBuilder/validateAccountDataBuilder');
     var registerAccount = require('./registerAccount');
 
+
+
+    // validate account data --------------------------------------------------
+    
     var createAccountResponse;
 
     createAccountResponse = validateAccountBuilder(accountData);
-    var accountValid = createAccountResponse.accountDataValid;
+    var accountDataValid = createAccountResponse.accountDataValid;
+    
+    
+
+    // register account -------------------------------------------------------
 
     var accountRegistered;
 
-    if(accountValid){
+    if(accountDataValid){
         accountRegistered = registerAccount(accountData);
     }
     else accountRegistered = false;

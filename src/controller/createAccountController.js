@@ -20,11 +20,13 @@ class createAccountController{
         this.passwordValidCharactersOrNumberOfCharacters = response.passwordValidCharactersOrNumberOfCharacters; 
         this.emailValid = response.emailValid; 
         this.accountDataValid = response.accountDataValid; 
+        this.usernameInUse = response.usernameInUse;
+        this.emailInUse = response.emailInUse;
 
-        // Object.entries(this).forEach(field => {
-        //     const [key, value] = field;
-        //     console.log(key, value);
-        // });
+        Object.entries(this).forEach(field => {
+            const [key, value] = field;
+            console.log(key, value);
+        });
         
 
        

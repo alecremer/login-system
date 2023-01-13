@@ -1,7 +1,7 @@
 import React from "react";
-import "../../Styles/logContainer.css";
-import TextInput from "../Input/TextInput";
-import Button from "../Input/Button";
+import "../Styles/logContainer.css";
+import TextInput from "../Components/Input/TextInput";
+import Button from "../Components/Input/Button";
 import { Redirect } from 'react-router-dom';
 
 export default class LogupContainer extends React.Component{

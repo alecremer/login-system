@@ -13,8 +13,9 @@ import createAccountController from './controller/createAccountController';
 
 
 // view imports -------------------------------------------------------------------
-import LoginContainer from './presentation/view/Components/SignPages/LoginContainer';
-import LogupContainer from './presentation/view/Components/SignPages/LogupContainer';
+import LoginContainer from './presentation/view/SignPages/LoginContainer';
+import LogupContainer from './presentation/view/SignPages/LogupContainer';
+import Home from "./presentation/view/Home";
 
 // --------------------------------------------------------------------------------
 
@@ -26,6 +27,7 @@ function App() {
     
         <Route element = { <LoginContainer/> }  path="/" />
         <Route element = { <LogupContainer controller={createAccountController}/> }  path="/logup" />
+        <Route element = { <Home/>} path="/home"/>
 
       </Routes>
     </div>

@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.home-container{
+
+    
+
+}
+
+.hello-text{
+    color: rgb(0, 0, 0);
+    padding-left: 5%;
+}
+
+.top-bar{
+
+    background-color: #fff;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+
+}

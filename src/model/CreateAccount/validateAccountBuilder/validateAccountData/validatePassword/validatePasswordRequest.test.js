@@ -1,5 +1,5 @@
 const validatePasswordRequest = require("./validatePasswordRequest");
-const responseCode = require("../../createAccountResponse");
+const responseCode = require("../../../createAccountResponse");
 
 var response = responseCode;
 

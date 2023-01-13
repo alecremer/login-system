@@ -1,4 +1,4 @@
-const validateAccountBuilder = require("./validateAccountBuilder.js");
+const validateAccountBuilder = require("./validateAccountDataBuilder.js");
 
 var dataOK = {email: "email.test@somemail.com", password: "somePassword123@@", passwordConfirmation: "somePassword123@@"}; 
 var dataEmailError = {email: "email.test.com", password: "somePassword123@@", passwordConfirmation: "somePassword123@@"};

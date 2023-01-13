@@ -1,5 +1,5 @@
 const validateEmail = require("./validateEmail.js");
-var responseCode = require("../../createAccountResponse");
+var responseCode = require("../../../createAccountResponse");
 
 var response = responseCode;
 

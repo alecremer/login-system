@@ -9,7 +9,7 @@ export default class LogupContainer extends React.Component{
     constructor(props)
     {
         super(props);
-        this.state = {data: {password: "", passwordConfirmation: ""}, passwordValid: true, emailValid: true, emailInUse: false, usernameInUse: false};
+        this.state = {data: {password: "", passwordConfirmation: "", username: "", email: ""}, passwordValid: true, emailValid: true, emailInUse: false, usernameInUse: false};
     }
 
     setUsernameDataState(value) {
@@ -41,7 +41,7 @@ export default class LogupContainer extends React.Component{
 
     redirectIfLogUp(isRegistered){
 
-        // if(isRegistered === true) window.location.href = '/anotherPagePath';
+        if(isRegistered === true) window.location.href = '/home';
 
     }
     
@@ -67,13 +67,13 @@ export default class LogupContainer extends React.Component{
                         <div className="grid  basis-11/12 p-2">
                             
                             <div className="flex items-center justify-center pr-2 pl-2">
-                                <TextInput label="Nome de usuário:" type="text" onChangeValue={(value) => this.setUsernameDataState(value)}/>
+                                <TextInput value={this.state.data.username} label="Nome de usuário:" type="text" onChangeValue={(value) => this.setUsernameDataState(value)}/>
                             </div>
                             {(this.state.usernameInUse) &&
                             <p className="log-error pl-3">o nome de usuário já está em uso</p>}
                             
                             <div className="flex items-center justify-center pr-2 pl-2">
-                                <TextInput label="E-mail:" type="email" onChangeValue={(value) => this.setEmailDataState(value)}/>
+                                <TextInput value={this.state.data.email} label="E-mail:" type="email" onChangeValue={(value) => this.setEmailDataState(value)}/>
                             </div>
                             {(!this.state.emailValid) &&
                             <p className="log-error pl-3">use um endereço de email válido</p>}

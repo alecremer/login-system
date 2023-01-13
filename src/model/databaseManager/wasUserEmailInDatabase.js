@@ -1,6 +1,6 @@
 function wasUserEmailInDatabase(email) {
 
-    return (localStorage.getItem("email" + "_" + email) != null); 
+    return (localStorage.getItem("email_" + email) != null); 
 
 }
 

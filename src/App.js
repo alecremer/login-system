@@ -8,6 +8,7 @@ import './App.css';
 
 // controller imports -------------------------------------------------------------
 import createAccountController from './controller/createAccountController';
+import loginController from "./controller/loginController";
 
 // --------------------------------------------------------------------------------
 
@@ -25,7 +26,7 @@ function App() {
     <div className="App">
       <Routes >
     
-        <Route element = { <LoginContainer/> }  path="/" />
+        <Route element = { <LoginContainer controller={loginController}/> }  path="/" />
         <Route element = { <LogupContainer controller={createAccountController}/> }  path="/logup" />
         <Route element = { <Home/>} path="/home"/>
 

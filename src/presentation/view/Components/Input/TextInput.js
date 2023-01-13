@@ -29,7 +29,7 @@ export default class TextInput extends React.Component{
 
                 <div className=" basis-7/12 ">
                     <form>
-                        <input type={this.props.type} className="text-input h-8"
+                        <input value={this.props.value} type={this.props.type} className="text-input h-8"
                         onChange={e => this.setValue(e)}
                         />
                     </form>

@@ -13,8 +13,8 @@ import createAccountController from './controller/createAccountController';
 
 
 // view imports -------------------------------------------------------------------
-import LoginContainer from './presentation/view/Components/Login/LoginContainer';
-import LogupContainer from './presentation/view/Components/Login/LogupContainer';
+import LoginContainer from './presentation/view/Components/SignPages/LoginContainer';
+import LogupContainer from './presentation/view/Components/SignPages/LogupContainer';
 
 // --------------------------------------------------------------------------------
 
